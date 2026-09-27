@@ -48,19 +48,19 @@ const followUpScreenshots = [
 
 function FollowUpConversations() {
   return (
-    <div className="min-w-0 space-y-5">
+    <div className="mt-8 min-w-0 space-y-5">
       <div className="rounded-lg border border-primary/20 bg-lime-soft p-5">
         <span className="text-xs font-extrabold uppercase tracking-wider text-primary">Uma conversa real, do retorno à compra</span>
         <h3 className="mt-2 font-display text-xl font-bold text-primary">Foi no 5º follow-up que o lead respondeu. Depois, concluiu a compra.</h3>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">Caso compartilhado pelo vendedor. Os prints abaixo mostram a retomada, o envio do pagamento e a confirmação da compra.</p>
       </div>
       {followUpScreenshots.map((step, index) => (
-        <figure key={step.title} className="overflow-hidden rounded-lg border border-border bg-background shadow-sm">
-          <figcaption className="flex items-start gap-3 px-4 py-4">
+        <figure key={step.title} className="grid overflow-hidden rounded-lg border border-border bg-background shadow-sm lg:grid-cols-[240px_minmax(0,1fr)]">
+          <figcaption className="flex items-start gap-3 p-4 lg:p-6">
             <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{index + 1}</span>
             <div><h4 className="text-sm font-bold text-primary">{step.title}</h4><p className="mt-1 text-xs leading-5 text-muted-foreground">{step.description}</p></div>
           </figcaption>
-          <a href={step.image} target="_blank" rel="noreferrer" className="block focus-visible:outline-2 focus-visible:outline-primary" aria-label={`Ampliar print: ${step.title}`}>
+          <a href={step.image} target="_blank" rel="noreferrer" className="block min-w-0 border-t border-border focus-visible:outline-2 focus-visible:outline-primary lg:border-l lg:border-t-0" aria-label={`Ampliar print: ${step.title}`}>
             <img src={step.image} alt={`Conversa real de WhatsApp: ${step.title}`} width={step.width} height={step.height} loading="lazy" className="h-auto w-full" />
           </a>
         </figure>
@@ -98,20 +98,20 @@ function Index() {
         </div>
       </section>
 
-      <section id="historia" className="bg-surface py-16 sm:py-24">
-        <div className="mx-auto grid max-w-6xl items-start gap-10 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+      <section id="historia" className="bg-surface py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div>
             <SectionLabel number="01">A conversa que ficou para depois</SectionLabel>
-            <h2 className="max-w-xl font-display text-3xl font-bold leading-tight sm:text-4xl">Você investiu para chegar até o cliente. <span className="text-primary">E depois ele sumiu.</span></h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-muted-foreground">Você respondeu, enviou a proposta, explicou o produto. A pessoa disse “vou pensar” e a conversa foi descendo na caixa de entrada. Entre uma tarefa e outra, ninguém voltou ali.</p>
-            <p className="mt-4 max-w-xl text-base leading-8 text-muted-foreground">Essa história é comum em negócios de todos os tamanhos. O problema não é sempre a oferta ou o preço. Muitas vezes, faltou um próximo contato no momento certo.</p>
+            <h2 className="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">Você investiu para chegar até o cliente. <span className="text-primary">E depois ele sumiu.</span></h2>
+            <div className="mt-5 grid gap-4 lg:grid-cols-2 lg:gap-8"><p className="text-base leading-7 text-muted-foreground">Você respondeu, enviou a proposta, explicou o produto. A pessoa disse “vou pensar” e a conversa foi descendo na caixa de entrada. Entre uma tarefa e outra, ninguém voltou ali.</p>
+            <p className="text-base leading-7 text-muted-foreground">Essa história é comum em negócios de todos os tamanhos. O problema não é sempre a oferta ou o preço. Muitas vezes, faltou um próximo contato no momento certo.</p></div>
             <p className="mt-6 border-l-[3px] border-coral pl-5 font-display text-lg font-semibold leading-7 text-foreground">Antes de correr atrás de novos contatos, vale olhar para quem já demonstrou interesse.</p>
           </div>
           <FollowUpConversations />
         </div>
       </section>
 
-      <section className="border-y border-border bg-surface-alt py-16 sm:py-24">
+      <section className="border-y border-border bg-surface-alt py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionLabel number="02">O verdadeiro problema</SectionLabel>
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
@@ -132,7 +132,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-surface py-16 sm:py-24">
+      <section className="bg-surface py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionLabel number="04">O método dentro do guia</SectionLabel>
           <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><h2 className="max-w-2xl font-display text-3xl font-bold leading-tight sm:text-4xl">Um processo simples para colocar o seu WhatsApp para trabalhar com você.</h2><p className="max-w-xs text-sm leading-7 text-muted-foreground">Sem precisar de uma equipe grande ou uma ferramenta complicada para começar.</p></div>
@@ -145,7 +145,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-surface-alt py-16 sm:py-24">
+      <section className="border-y border-border bg-surface-alt py-12 sm:py-16">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div><SectionLabel number="05">WhatsApp Vendedor</SectionLabel><h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">Tudo o que você precisa para começar a recuperar conversas.</h2><p className="mt-5 leading-8 text-muted-foreground">Um material direto, feito para sair da teoria e entrar na sua rotina comercial.</p><div className="mt-7 flex items-center gap-3 text-sm font-bold text-primary"><FileText size={19} aria-hidden="true" /> E-book digital em PDF</div></div>
           <div className="divide-y divide-border border-t border-border">{[
@@ -157,7 +157,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-surface py-16 sm:py-24">
+      <section className="bg-surface py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-5 sm:px-8"><SectionLabel number="06">Para quem faz sentido</SectionLabel><h2 className="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">Se existe uma conversa parada, existe uma oportunidade de fazer melhor.</h2><div className="mt-9 grid gap-4 md:grid-cols-3">{[
           ["Para quem vende", "Você conversa com interessados todos os dias, mas não consegue voltar a todos eles com consistência."],
           ["Para quem empreende", "Você quer aproveitar melhor os contatos que seu negócio já conquistou antes de investir mais para atrair novos."],
@@ -172,7 +172,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-background py-16 sm:py-24"><div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20"><div><SectionLabel number="07">Perguntas frequentes</SectionLabel><h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">Ainda ficou alguma dúvida?</h2><p className="mt-5 text-sm leading-7 text-muted-foreground">Respostas diretas para você decidir com clareza.</p></div><Accordion type="single" collapsible className="border-t border-border">{faq.map((item, i) => <AccordionItem key={item.q} value={`item-${i}`}><AccordionTrigger className="py-5 pr-3 font-display text-base font-semibold hover:no-underline">{item.q}</AccordionTrigger><AccordionContent className="pb-5 text-sm leading-7 text-muted-foreground">{item.a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
+      <section className="bg-background py-12 sm:py-16"><div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20"><div><SectionLabel number="07">Perguntas frequentes</SectionLabel><h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">Ainda ficou alguma dúvida?</h2><p className="mt-5 text-sm leading-7 text-muted-foreground">Respostas diretas para você decidir com clareza.</p></div><Accordion type="single" collapsible className="border-t border-border">{faq.map((item, i) => <AccordionItem key={item.q} value={`item-${i}`}><AccordionTrigger className="py-5 pr-3 font-display text-base font-semibold hover:no-underline">{item.q}</AccordionTrigger><AccordionContent className="pb-5 text-sm leading-7 text-muted-foreground">{item.a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
 
       <footer className="border-t border-border bg-surface px-5 py-8 sm:px-8"><div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 sm:flex-row sm:items-center"><span className="font-display text-sm font-extrabold">WhatsApp<span className="text-primary">.</span>Vendedor</span><p className="max-w-lg text-xs leading-5 text-muted-foreground">Material educativo. A aplicação das estratégias não garante resultados específicos de vendas.</p><a href="#inicio" className="text-xs font-bold text-primary hover:underline">Voltar ao início ↑</a></div></footer>
 
