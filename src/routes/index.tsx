@@ -7,6 +7,8 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import followUpReply from "@/assets/follow-up-resposta.png";
 import followUpPayment from "@/assets/follow-up-pagamento.png";
 import followUpPurchase from "@/assets/follow-up-compra.png";
+import salesDashboard from "@/assets/resultados-vendas-painel.png";
+import salesPowerOn from "@/assets/resultados-vendas-power-on.png";
 import coverImage from "@/assets/whatsapp-vendedor-capa.png";
 
 export const Route = createFileRoute("/")({
@@ -46,6 +48,11 @@ const followUpScreenshots = [
   { image: followUpPurchase, title: "Compra concluída e acesso recebido", description: "O cliente retornou com a confirmação de compra e a mensagem de acesso ao curso.", width: 895, height: 484 },
 ];
 
+const salesResults = [
+  { image: salesDashboard, title: "Painel de vendas", description: "Total exibido no painel: R$ 314.632,49 em valor líquido e 4.551 vendas.", width: 1354, height: 591 },
+  { image: salesPowerOn, title: "Vendas · Power On", description: "Total exibido no painel: R$ 245.083,89 em valor líquido e 1.725 vendas.", width: 1356, height: 284 },
+];
+
 function FollowUpConversations() {
   const [selectedPrint, setSelectedPrint] = useState<(typeof followUpScreenshots)[number] | null>(null);
   return (
@@ -67,6 +74,23 @@ function FollowUpConversations() {
         </figure>
       ))}
       <p className="text-center text-xs leading-5 text-muted-foreground">Toque nos prints para ampliar. Este é um caso individual; os resultados variam.</p>
+      <div className="space-y-5 border-t border-border pt-7">
+        <div>
+          <span className="text-xs font-extrabold uppercase tracking-wider text-primary">Resultados compartilhados pelo vendedor</span>
+          <h3 className="mt-2 font-display text-2xl font-bold text-primary">Recupere oportunidades com as técnicas do Guia WhatsApp Vendedor.</h3>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">Segundo o vendedor, as técnicas do guia fazem parte da sua rotina de recuperação de vendas. Estes são os registros dos seus painéis de vendas.</p>
+          <p className="mt-3 rounded-md bg-lime-soft px-4 py-3 text-sm font-bold text-primary">Funciona para infoprodutos, serviços ou produtos físicos. Adapte as mensagens à sua oferta e ao contexto do cliente.</p>
+        </div>
+        {salesResults.map((result) => (
+          <figure key={result.title} className="overflow-hidden rounded-lg border border-border bg-background">
+            <figcaption className="p-4 sm:p-5"><h4 className="font-display text-lg font-bold text-primary">{result.title}</h4><p className="mt-1 text-sm leading-6 text-muted-foreground">{result.description}</p></figcaption>
+            <button type="button" onClick={() => setSelectedPrint(result)} aria-label={`Ampliar resultado: ${result.title}`} className="block w-full cursor-zoom-in border-t border-border focus-visible:outline-2 focus-visible:outline-primary">
+              <img src={result.image} alt={result.description} width={result.width} height={result.height} loading="lazy" className="h-auto w-full" />
+            </button>
+          </figure>
+        ))}
+        <p className="text-xs leading-5 text-muted-foreground">Os valores são totais dos painéis; os prints não discriminam o volume recuperado por follow-up. Resultados individuais variam. Clique para ampliar.</p>
+      </div>
       <div className="flex justify-center pt-3"><OfferButton onClick={() => document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" })}>Quero recuperar minhas vendas</OfferButton></div>
       <Dialog open={selectedPrint !== null} onOpenChange={(open) => { if (!open) setSelectedPrint(null); }}>
         <DialogContent className="max-h-[92dvh] w-[calc(100%-2rem)] max-w-5xl overflow-y-auto p-4 sm:p-6">
@@ -74,7 +98,7 @@ function FollowUpConversations() {
             <DialogTitle className="pr-8">{selectedPrint?.title}</DialogTitle>
             <DialogDescription>{selectedPrint?.description}</DialogDescription>
           </DialogHeader>
-          {selectedPrint && <img src={selectedPrint.image} alt={`Conversa real de WhatsApp: ${selectedPrint.title}`} width={selectedPrint.width} height={selectedPrint.height} className="h-auto w-full rounded-md" />}
+          {selectedPrint && <img src={selectedPrint.image} alt={selectedPrint.title} width={selectedPrint.width} height={selectedPrint.height} className="h-auto w-full rounded-md" />}
         </DialogContent>
       </Dialog>
     </div>
