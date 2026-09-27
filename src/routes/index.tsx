@@ -47,8 +47,9 @@ const followUpScreenshots = [
 ];
 
 function FollowUpConversations() {
+  const [selectedPrint, setSelectedPrint] = useState<(typeof followUpScreenshots)[number] | null>(null);
   return (
-    <div className="mt-8 min-w-0 space-y-5">
+    <div id="follow-up" className="mt-8 min-w-0 scroll-mt-6 space-y-5">
       <div className="rounded-lg border border-primary/20 bg-lime-soft p-5">
         <span className="text-xs font-extrabold uppercase tracking-wider text-primary">Uma conversa real, do retorno à compra</span>
         <h3 className="mt-2 font-display text-xl font-bold text-primary">Foi no 5º follow-up que o lead respondeu. Depois, concluiu a compra.</h3>
@@ -60,12 +61,22 @@ function FollowUpConversations() {
             <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{index + 1}</span>
             <div><h4 className="text-sm font-bold text-primary">{step.title}</h4><p className="mt-1 text-xs leading-5 text-muted-foreground">{step.description}</p></div>
           </figcaption>
-          <a href={step.image} target="_blank" rel="noreferrer" className="block min-w-0 border-t border-border focus-visible:outline-2 focus-visible:outline-primary lg:border-l lg:border-t-0" aria-label={`Ampliar print: ${step.title}`}>
+          <button type="button" onClick={() => setSelectedPrint(step)} className="block w-full min-w-0 cursor-zoom-in border-t border-border focus-visible:outline-2 focus-visible:outline-primary lg:border-l lg:border-t-0" aria-label={`Ampliar print: ${step.title}`}>
             <img src={step.image} alt={`Conversa real de WhatsApp: ${step.title}`} width={step.width} height={step.height} loading="lazy" className="h-auto w-full" />
-          </a>
+          </button>
         </figure>
       ))}
       <p className="text-center text-xs leading-5 text-muted-foreground">Toque nos prints para ampliar. Este é um caso individual; os resultados variam.</p>
+      <div className="flex justify-center pt-3"><OfferButton onClick={() => document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" })}>Quero recuperar minhas vendas</OfferButton></div>
+      <Dialog open={selectedPrint !== null} onOpenChange={(open) => { if (!open) setSelectedPrint(null); }}>
+        <DialogContent className="max-h-[92dvh] w-[calc(100%-2rem)] max-w-5xl overflow-y-auto p-4 sm:p-6">
+          <DialogHeader>
+            <DialogTitle className="pr-8">{selectedPrint?.title}</DialogTitle>
+            <DialogDescription>{selectedPrint?.description}</DialogDescription>
+          </DialogHeader>
+          {selectedPrint && <img src={selectedPrint.image} alt={`Conversa real de WhatsApp: ${selectedPrint.title}`} width={selectedPrint.width} height={selectedPrint.height} className="h-auto w-full rounded-md" />}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
@@ -93,7 +104,7 @@ function Index() {
             <div className="absolute right-[max(0px,calc(50%-200px))] top-6 hidden rotate-6 rounded-md border border-line-light bg-primary/90 px-3 py-2 text-left shadow-lg sm:block"><span className="block font-display text-xl font-extrabold text-lime">14 dias</span><span className="text-[10px] font-bold text-hero-foreground/75">para criar sua rotina</span></div>
           </div>
           <p className="mt-2 text-xs font-semibold text-hero-foreground/75 sm:text-sm">Para empresários e vendedores que preferem acompanhar bem a deixar oportunidades no silêncio.</p>
-          <OfferButton onClick={goToOffer} className="mt-6 min-w-[285px]">Quero recuperar minhas vendas</OfferButton>
+          <OfferButton onClick={() => document.getElementById("follow-up")?.scrollIntoView({ behavior: "smooth" })} className="mt-6 min-w-[285px]">Quero recuperar minhas vendas</OfferButton>
           <a href="#historia" className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-hero-foreground/65 hover:text-hero-foreground">Entenda como funciona <ArrowDown size={13} aria-hidden="true" /></a>
         </div>
       </section>
@@ -174,7 +185,7 @@ function Index() {
 
       <section className="bg-background py-12 sm:py-16"><div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20"><div><SectionLabel number="07">Perguntas frequentes</SectionLabel><h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">Ainda ficou alguma dúvida?</h2><p className="mt-5 text-sm leading-7 text-muted-foreground">Respostas diretas para você decidir com clareza.</p></div><Accordion type="single" collapsible className="border-t border-border">{faq.map((item, i) => <AccordionItem key={item.q} value={`item-${i}`}><AccordionTrigger className="py-5 pr-3 font-display text-base font-semibold hover:no-underline">{item.q}</AccordionTrigger><AccordionContent className="pb-5 text-sm leading-7 text-muted-foreground">{item.a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
 
-      <footer className="border-t border-border bg-surface px-5 py-8 sm:px-8"><div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 sm:flex-row sm:items-center"><span className="font-display text-sm font-extrabold">WhatsApp<span className="text-primary">.</span>Vendedor</span><p className="max-w-lg text-xs leading-5 text-muted-foreground">Material educativo. A aplicação das estratégias não garante resultados específicos de vendas.</p><a href="#inicio" className="text-xs font-bold text-primary hover:underline">Voltar ao início ↑</a></div></footer>
+      <footer className="border-t border-border bg-surface px-5 py-6 text-center sm:px-8"><a href="#inicio" className="text-xs font-bold text-primary hover:underline">Voltar ao início ↑</a></footer>
 
       <Dialog open={checkoutOpen} onOpenChange={setCheckoutOpen}><DialogContent className="max-w-md border-border bg-surface p-7 sm:p-8"><DialogHeader><div className="mb-3 flex size-11 items-center justify-center rounded-md bg-lime-soft text-primary"><FileText size={23} aria-hidden="true" /></div><DialogTitle className="font-display text-xl">Compra ainda indisponível</DialogTitle><DialogDescription className="pt-2 text-sm leading-6 text-muted-foreground">O e-book está apresentado por R$ 37,00 à vista ou 6x de R$ 6,94, mas ainda não foi informado um link de pagamento. Assim que o checkout for conectado, você poderá concluir a compra por aqui.</DialogDescription></DialogHeader><Button variant="outline" onClick={() => setCheckoutOpen(false)} className="mt-3 w-full">Entendi <X size={15} aria-hidden="true" /></Button></DialogContent></Dialog>
     </main>
