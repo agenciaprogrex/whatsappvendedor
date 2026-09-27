@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, CheckCircle2, ChevronRight, Clock3, FileText, MessageCircleMore, ShieldCheck, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, CheckCircle2, ChevronRight, Clock3, FileText, MessageCircleMore, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -28,7 +28,7 @@ const faq = [
   { q: "Serve para o meu tipo de negócio?", a: "O guia traz exemplos para quem vende produtos físicos, serviços e infoprodutos. As mensagens devem ser adaptadas ao seu produto e ao contexto de cada cliente." },
   { q: "Preciso ter muitos contatos para começar?", a: "Não. Você pode começar organizando os contatos recentes que já demonstraram interesse, mesmo que sua lista seja pequena." },
   { q: "Preciso usar automação ou pagar por outro aplicativo?", a: "Não. O processo pode ser executado manualmente com uma agenda e uma planilha simples. O e-book também sugere formas de organizar os contatos." },
-  { q: "Em quanto tempo vou ver resultados?", a: "O material propõe um ciclo de acompanhamento de 14 dias. Resultados dependem da sua oferta, da qualidade dos contatos e da forma de execução; não existe promessa de vendas garantidas." },
+  { q: "Em quanto tempo vou ver resultados?", a: "O material propõe um ciclo de acompanhamento de 14 dias. Resultados dependem da sua oferta, da qualidade dos contatos e da forma de execução." },
   { q: "Como funciona o pagamento e a entrega?", a: "O produto é digital e o preço anunciado é R$ 37,00 à vista ou 6x de R$ 6,94 no cartão. O checkout e os detalhes de entrega ainda precisam ser conectados a esta página." },
 ];
 
@@ -90,10 +90,6 @@ function Index() {
       <div className="bg-lime px-5 py-2.5 text-center text-[11px] font-extrabold uppercase text-lime-foreground sm:text-xs">Para quem já recebe contatos pelo WhatsApp e quer vender com mais consistência</div>
 
       <section className="sales-hero relative flex min-h-[700px] flex-col overflow-hidden text-hero-foreground sm:min-h-[790px]" aria-labelledby="hero-title">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-          <a href="#inicio" className="font-display text-sm font-extrabold text-hero-foreground sm:text-base">WhatsApp<span className="text-lime">.</span>Vendedor</a>
-          <a href="#oferta" className="group inline-flex items-center gap-1.5 text-xs font-bold text-hero-foreground/80 transition-colors hover:text-lime">Conhecer o guia <ArrowUpRight size={15} aria-hidden="true" /></a>
-        </div>
         <div id="inicio" className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center px-5 pb-12 pt-7 text-center sm:px-8 sm:pb-16 sm:pt-6">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-line-light bg-primary/40 px-3.5 py-1.5 text-[10px] font-extrabold uppercase text-lime sm:text-xs"><span className="size-1.5 rounded-full bg-lime" />Um guia prático para vendas pelo WhatsApp</div>
           <h1 id="hero-title" className="max-w-[800px] font-display text-[clamp(2.15rem,4.2vw,3.8rem)] font-extrabold leading-[1.11]">WhatsApp Vendedor: <span className="text-lime">recupere conversas paradas</span> e venda com método todos os dias.</h1>
@@ -158,7 +154,7 @@ function Index() {
 
       <section className="border-y border-border bg-surface-alt py-12 sm:py-16">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <div><SectionLabel number="05">WhatsApp Vendedor</SectionLabel><h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">Tudo o que você precisa para começar a recuperar conversas.</h2><p className="mt-5 leading-8 text-muted-foreground">Um material direto, feito para sair da teoria e entrar na sua rotina comercial.</p><div className="mt-7 flex items-center gap-3 text-sm font-bold text-primary"><FileText size={19} aria-hidden="true" /> E-book digital em PDF</div></div>
+          <div><SectionLabel number="05">WhatsApp Vendedor</SectionLabel><h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">Tudo o que você precisa para começar a recuperar conversas.</h2><p className="mt-5 leading-8 text-muted-foreground">Um material direto, feito para sair da teoria e entrar na sua rotina comercial.</p></div>
           <div className="divide-y divide-border border-t border-border">{[
             ["O ciclo de recuperação de 14 dias", "A lógica por trás de cada contato e as pausas entre as mensagens."],
             ["Mensagens para diferentes tipos de venda", "Exemplos para infoprodutos, produtos físicos e serviços."],
@@ -178,8 +174,8 @@ function Index() {
 
       <section id="oferta" className="bg-primary py-16 text-primary-foreground sm:py-24">
         <div className="mx-auto max-w-5xl px-5 sm:px-8"><div className="text-center"><span className="text-xs font-extrabold uppercase text-lime">Sua próxima conversa pode começar hoje</span><h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">Pare de deixar vendas esfriando nas primeiras conversas.</h2><p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-primary-foreground/70 sm:text-base">Tenha em mãos um plano de acompanhamento que você consegue adaptar ao seu negócio.</p></div>
-          <div className="mx-auto mt-10 max-w-2xl overflow-hidden rounded-md border border-line-light bg-surface text-foreground shadow-2xl"><div className="flex items-center gap-4 border-b border-border px-6 py-5 sm:px-8"><img src={coverImage} alt="Capa do e-book WhatsApp Vendedor" loading="lazy" width={676} height={900} className="h-20 w-auto rounded-[2px] shadow-md" /><div><div className="font-display text-lg font-bold">WhatsApp Vendedor</div><p className="mt-1 text-xs text-muted-foreground">A Técnica da Recuperação Imediata · E-book em PDF</p></div></div><div className="px-6 py-7 sm:px-8"><ul className="space-y-3 text-sm">{["Sequência prática de 14 dias", "12 mensagens para adaptar e usar", "Exemplos para produtos, serviços e infoprodutos", "Checklists para organizar sua rotina"].map(item => <li key={item} className="flex items-center gap-3"><Check size={17} className="shrink-0 text-primary" aria-hidden="true" />{item}</li>)}</ul><div className="mt-7 border-t border-border pt-6 text-center"><p className="text-sm text-muted-foreground">De <span className="line-through">R$ 97,00</span> por apenas</p><div className="mt-1 font-display text-5xl font-extrabold text-primary sm:text-6xl">R$ 37,00</div><p className="mt-1 text-sm font-semibold text-muted-foreground">à vista ou 6x de R$ 6,94 no cartão</p><OfferButton onClick={() => setCheckoutOpen(true)} className="mt-6 w-full">Quero garantir meu e-book</OfferButton><p className="mt-3 text-xs text-muted-foreground">Pagamento seguro quando o checkout estiver disponível.</p></div></div></div>
-          <div className="mx-auto mt-8 flex max-w-2xl items-start gap-3 text-sm text-primary-foreground/75"><ShieldCheck className="mt-0.5 size-5 shrink-0 text-lime" aria-hidden="true" /><p>Compra digital. O acesso e as condições de entrega serão apresentados no checkout assim que a conexão de pagamento estiver disponível.</p></div>
+          <div className="mx-auto mt-10 max-w-2xl overflow-hidden rounded-md border border-line-light bg-surface text-foreground shadow-2xl"><div className="flex items-center gap-4 border-b border-border px-6 py-5 sm:px-8"><img src={coverImage} alt="Capa do e-book WhatsApp Vendedor" loading="lazy" width={676} height={900} className="h-20 w-auto rounded-[2px] shadow-md" /><div><div className="font-display text-lg font-bold">WhatsApp Vendedor</div><p className="mt-1 text-xs text-muted-foreground">A Técnica da Recuperação Imediata</p></div></div><div className="px-6 py-7 sm:px-8"><ul className="space-y-3 text-sm">{["Sequência prática de 14 dias", "12 mensagens para adaptar e usar", "Exemplos para produtos, serviços e infoprodutos", "Checklists para organizar sua rotina"].map(item => <li key={item} className="flex items-center gap-3"><Check size={17} className="shrink-0 text-primary" aria-hidden="true" />{item}</li>)}</ul><div className="mt-7 border-t border-border pt-6 text-center"><p className="text-sm text-muted-foreground">De <span className="line-through">R$ 97,00</span> por apenas</p><div className="mt-1 font-display text-5xl font-extrabold text-primary sm:text-6xl">R$ 37,00</div><p className="mt-1 text-sm font-semibold text-muted-foreground">à vista ou 6x de R$ 6,94 no cartão</p><OfferButton onClick={() => setCheckoutOpen(true)} className="mt-6 w-full">Quero começar vender agora</OfferButton><p className="mt-3 text-xs text-muted-foreground">Pagamento 100% seguro.</p></div></div></div>
+          <div className="mx-auto mt-8 flex max-w-2xl items-start gap-3 text-sm text-primary-foreground/75"><ShieldCheck className="mt-0.5 size-5 shrink-0 text-lime" aria-hidden="true" /><p>Compra digital. Você recebe o acesso imediatamente após a confirmação do pagamento.</p></div>
         </div>
       </section>
 
