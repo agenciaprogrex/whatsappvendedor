@@ -1,0 +1,150 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Sora", sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-ink-soft: var(--ink-soft);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-line-light: var(--line-light);
+  --color-lime: var(--lime);
+  --color-lime-foreground: var(--lime-foreground);
+  --color-lime-soft: var(--lime-soft);
+  --color-coral: var(--coral);
+  --color-hero-foreground: var(--hero-foreground);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.987 0.003 130);
+  --foreground: oklch(0.19 0.02 161);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.02 161);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.02 161);
+  --primary: oklch(0.26 0.06 158);
+  --primary-foreground: oklch(0.98 0.003 130);
+  --secondary: oklch(0.94 0.025 150);
+  --secondary-foreground: oklch(0.23 0.045 158);
+  --muted: oklch(0.955 0.007 145);
+  --muted-foreground: oklch(0.45 0.025 161);
+  --accent: oklch(0.88 0.15 121);
+  --accent-foreground: oklch(0.2 0.035 157);
+  --destructive: oklch(0.58 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.875 0.016 150);
+  --input: oklch(0.875 0.016 150);
+  --ring: oklch(0.55 0.11 150);
+  --chart-1: oklch(0.7 0.14 140);
+  --chart-2: oklch(0.65 0.1 34);
+  --chart-3: oklch(0.5 0.08 201);
+  --chart-4: oklch(0.75 0.1 80);
+  --chart-5: oklch(0.4 0.08 160);
+  --sidebar: oklch(0.98 0.005 145);
+  --sidebar-foreground: oklch(0.19 0.02 161);
+  --sidebar-primary: oklch(0.26 0.06 158);
+  --sidebar-primary-foreground: oklch(0.98 0.003 130);
+  --sidebar-accent: oklch(0.94 0.025 150);
+  --sidebar-accent-foreground: oklch(0.23 0.045 158);
+  --sidebar-border: oklch(0.875 0.016 150);
+  --sidebar-ring: oklch(0.55 0.11 150);
+  --ink-soft: oklch(0.33 0.035 160);
+  --surface: oklch(1 0 0);
+  --surface-alt: oklch(0.965 0.012 155);
+  --line-light: oklch(0.98 0.01 140 / 24%);
+  --lime: oklch(0.88 0.17 120);
+  --lime-foreground: oklch(0.18 0.035 155);
+  --lime-soft: oklch(0.95 0.075 122);
+  --coral: oklch(0.68 0.14 32);
+  --hero-foreground: oklch(0.98 0.003 130);
+}
+
+.dark {
+  --background: oklch(0.19 0.02 161);
+  --foreground: oklch(0.98 0.003 130);
+  --card: oklch(0.24 0.03 161);
+  --card-foreground: oklch(0.98 0.003 130);
+  --popover: oklch(0.24 0.03 161);
+  --popover-foreground: oklch(0.98 0.003 130);
+  --primary: oklch(0.88 0.17 120);
+  --primary-foreground: oklch(0.18 0.035 155);
+  --secondary: oklch(0.3 0.04 159);
+  --secondary-foreground: oklch(0.98 0.003 130);
+  --muted: oklch(0.3 0.04 159);
+  --muted-foreground: oklch(0.75 0.025 145);
+  --accent: oklch(0.36 0.05 158);
+  --accent-foreground: oklch(0.98 0.003 130);
+  --destructive: oklch(0.7 0.18 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.45 0.03 156);
+  --input: oklch(0.45 0.03 156);
+  --ring: oklch(0.8 0.1 133);
+  --ink-soft: oklch(0.87 0.015 140);
+  --surface: oklch(0.24 0.03 161);
+  --surface-alt: oklch(0.27 0.035 156);
+  --line-light: oklch(0.98 0.01 140 / 24%);
+  --lime-soft: oklch(0.32 0.065 135);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); }
+  ::selection { background-color: var(--lime); color: var(--lime-foreground); }
+}
+
+.sales-hero {
+  background-image: linear-gradient(to bottom, oklch(0.15 0.025 162 / 91%), oklch(0.18 0.032 162 / 91%)), url("./assets/vendedor-bastidores.jpg");
+  background-size: cover;
+  background-position: center 45%;
+}
+
+.book-shadow { filter: drop-shadow(0 22px 24px oklch(0.06 0.01 160 / 38%)); }
+.book-cover { transform: perspective(1100px) rotateY(-7deg) rotateZ(-2deg); }
+.step-line::before { content: ""; position: absolute; top: 0; bottom: 0; left: 1.25rem; width: 1px; background: var(--border); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
